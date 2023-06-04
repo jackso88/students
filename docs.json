@@ -1,0 +1,68 @@
+{
+  "paths": {
+    "/search": {
+      "get": {
+        "summary": "ищет нужный параметр",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "query",
+            "required": true,
+            "schema": {
+              "type": "str"
+            },
+            "description": "строка для поиска 20 документов"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Удален нужный документ",
+            "content": {
+              "application/json": {
+                "result": {
+                  "decription": "Удаленный документ"
+                }
+              }
+            }
+          }
+        },
+        "tags": null
+      }
+    },
+    "/document/{id}": {
+      "delete": {
+        "summary": "удаляет по id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "description": "id для поиска нужного документы, который нужно удалить"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "20 документов, соответсвующих поиску",
+            "content": {
+              "application/json": {
+                "result": {
+                  "decription": "массив документов"
+                }
+              }
+            }
+          }
+        },
+        "tags": null
+      }
+    }
+  },
+  "info": {
+    "title": "Document searcher",
+    "version": "1.0.0"
+  },
+  "openapi": "3.0.3"
+}
